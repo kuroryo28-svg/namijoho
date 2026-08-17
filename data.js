@@ -1,7 +1,7 @@
 const DATA = {
   "pair": "USD/JPY",
-  "rate": "159.12",
-  "stamp": "8/17 (月) 18:13 JST",
+  "rate": "159.10",
+  "stamp": "8/17 (月) 18:14 JST",
   "condition": "ふつう",
   "note": "朝から動く。21時から上がる。水に大きいのが来る。",
   "size_pips": 66,
@@ -28,7 +28,7 @@ const DATA = {
     52,
     75,
     79,
-    74,
+    73,
     68,
     57,
     59,
@@ -130,9 +130,9 @@ const DATA = {
   "diag": {
     "library": 507,
     "k": 30,
-    "d_k": 10.674,
+    "d_k": 11.392,
     "d_k_pct": 93.2,
-    "spread": 0.14,
+    "spread": 0.146,
     "oldest": 5,
     "newest": 499,
     "random_med": [
@@ -151,5 +151,5 @@ const DATA = {
     "HANABI",
     "WATERMAN"
   ],
-  "generated_at": "2026-08-17T09:13:49.510293+00:00"
+  "generated_at": "2026-08-17T09:14:31.530806+00:00"
 };
