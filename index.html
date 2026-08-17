@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OBANZAK 波情報 — USD/JPY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E2A33;
+  --ink-2:#13363F;
+  --ink-3:#1B444E;
+  --line:#25525C;
+  --foam:#E8F1F0;
+  --haze:#8AA9AC;
+  --swell:#4FB3A8;
+  --buoy:#E8944A;
+  --alarm:#D9615A;
+  --disp:"Shippori Mincho B1",serif;
+  --body:"Zen Kaku Gothic New",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--ink);
+  color:var(--foam);
+  font-family:var(--body);
+  font-weight:400;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:560px;margin:0 auto;padding:20px 18px 56px}
+
+/* ---- topbar ---- */
+.topbar{display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--haze);
+  padding-bottom:14px;border-bottom:1px solid var(--line)}
+.topbar .rate{color:var(--foam);font-weight:500}
+.topbar .pair{color:var(--haze)}
+
+/* ---- hero ---- */
+.hero{padding:26px 0 6px}
+.hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.cond{font-family:var(--disp);font-weight:600;font-size:52px;line-height:1;
+  letter-spacing:.06em;margin:0}
+.size{font-family:var(--mono);font-weight:500;font-size:30px;line-height:1;
+  color:var(--swell);white-space:nowrap}
+.size small{font-size:13px;color:var(--haze);margin-left:3px}
+.hero-note{margin:14px 0 0;font-size:15px;color:var(--haze)}
+
+/* ---- swell band (signature) ---- */
+.band{margin:26px 0 0}
+.band svg{display:block;width:100%;height:120px;overflow:visible}
+.band-axis{display:flex;justify-content:space-between;font-family:var(--mono);
+  font-size:11px;color:var(--haze);margin-top:6px}
+.sessions{display:flex;gap:4px;margin-top:10px}
+.sess{flex:1;text-align:center;font-size:11px;color:var(--haze);
+  padding:5px 2px;border-top:1px solid var(--line)}
+.sess.on{color:var(--buoy);border-top-color:var(--buoy)}
+
+/* ---- readouts ---- */
+.reads{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:26px;
+  background:var(--line);border:1px solid var(--line)}
+.read{background:var(--ink-2);padding:14px 16px}
+.read dt{font-size:12px;color:var(--haze);margin:0 0 3px}
+.read dd{margin:0;font-size:19px;font-weight:500}
+.read dd .sub{display:block;font-size:12px;color:var(--haze);font-weight:400;margin-top:2px}
+
+/* ---- section heads ---- */
+.head{display:flex;align-items:center;gap:10px;margin:38px 0 14px}
+.head h2{font-family:var(--disp);font-weight:500;font-size:17px;letter-spacing:.1em;margin:0;white-space:nowrap}
+.head .rule{flex:1;height:1px;background:var(--line)}
+
+/* ---- swell sources ---- */
+.src{border-top:1px solid var(--line)}
+.src li{list-style:none;padding:13px 0;border-bottom:1px solid var(--line)}
+.src .meta{display:flex;align-items:center;gap:9px;margin-bottom:5px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.03em;
+  padding:2px 8px;border:1px solid currentColor;border-radius:2px}
+.t-big{color:var(--buoy)}
+.t-in{color:var(--swell)}
+.t-wind{color:var(--alarm)}
+.t-min{color:var(--haze)}
+.src .when{font-family:var(--mono);font-size:11px;color:var(--haze)}
+.src p{margin:0;font-size:14px}
+.src ul{margin:0;padding:0}
+
+/* ---- week ---- */
+.fc{border-top:1px solid var(--line)}
+.fc .row{display:grid;grid-template-columns:52px 1fr 74px;align-items:center;
+  gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.fc .dy{font-family:var(--mono);font-size:12px;color:var(--haze)}
+.fc .dy b{display:block;font-family:var(--disp);font-size:15px;
+  font-weight:500;color:var(--foam);letter-spacing:.05em}
+.fc .track{position:relative;height:14px}
+.fc .track:before{content:"";position:absolute;left:0;right:0;top:6px;
+  height:1px;background:var(--line)}
+.fc .band{position:absolute;top:4px;height:5px;background:var(--swell);opacity:.35;border-radius:3px}
+.fc .mk{position:absolute;top:0;width:2px;height:13px;background:var(--swell)}
+.fc .val{text-align:right;font-family:var(--mono);font-size:14px;color:var(--foam)}
+.fc .val small{display:block;font-size:11px;color:var(--haze)}
+.abst{border:1px solid var(--buoy);padding:14px 16px;font-size:14px;color:var(--buoy)}
+.diag{margin-top:12px;font-family:var(--mono);font-size:11px;color:var(--haze);line-height:1.8}
+
+/* ---- board pick ---- */
+.pick{margin-top:16px;border:1px solid var(--buoy);padding:16px 18px;
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.pick .lab{font-size:12px;color:var(--buoy)}
+.pick .nm{font-family:var(--mono);font-weight:500;font-size:22px;color:var(--buoy);letter-spacing:.04em}
+.pick .rz{font-size:13px;color:var(--haze);flex-basis:100%}
+
+/* ---- log ---- */
+.btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
+button{font-family:var(--body);font-size:14px;color:var(--foam);
+  background:transparent;border:1px solid var(--line);padding:11px 6px;
+  border-radius:2px;cursor:pointer;transition:background .15s,border-color .15s}
+button:hover{background:var(--ink-2);border-color:var(--haze)}
+button:active{transform:translateY(1px)}
+button:focus-visible{outline:2px solid var(--buoy);outline-offset:2px}
+.logline{font-family:var(--mono);font-size:12px;color:var(--haze);
+  padding:7px 0;border-bottom:1px solid var(--line);word-break:break-all}
+.logline .ch{color:var(--foam)}
+.logline .off{color:var(--buoy)}
+.logfoot{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.mini{font-family:var(--mono);font-size:11px;color:var(--haze);
+  background:none;border:none;padding:0;cursor:pointer;text-decoration:underline}
+.mini:hover{color:var(--foam);background:none}
+.empty{font-size:13px;color:var(--haze);padding:10px 0}
+
+.foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--haze)}
+.foot b{color:var(--foam);font-weight:500}
+
+@media (max-width:420px){
+  .cond{font-size:42px}
+  .size{font-size:24px}
+  .reads{grid-template-columns:1fr}
+  .btns{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){
+  .draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 1.1s ease-out forwards}
+  .fillup{opacity:0;animation:fade .9s .35s ease-out forwards}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- データは data.js に分離。生成スクリプトで上書きする -->
+  <script src="data.js"></script>
+
+  <div class="topbar">
+    <div><span class="rate" id="rate"></span> <span class="pair" id="pair"></span></div>
+    <div id="stamp"></div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-row">
+      <h1 class="cond" id="cond"></h1>
+      <div class="size"><span id="size"></span><small>pips</small></div>
+    </div>
+    <p class="hero-note" id="note"></p>
+  </div>
+
+  <div class="band">
+    <svg id="svg" viewBox="0 0 560 120" preserveAspectRatio="none" role="img"
+         aria-labelledby="bandtitle">
+      <title id="bandtitle">24時間の波の大きさ。夜のロンドン・ニューヨーク重複時間帯が最も大きい。</title>
+    </svg>
+    <div class="band-axis"><span>0時</span><span>6時</span><span>12時</span><span>18時</span><span>24時</span></div>
+    <div class="sessions" id="sessions"></div>
+  </div>
+
+  <dl class="reads">
+    <div class="read"><dt>波高</dt><dd><span id="r-size"></span> pips<span class="sub" id="r-norm"></span></dd></div>
+    <div class="read"><dt>面</dt><dd><span id="r-face"></span><span class="sub" id="r-facesub"></span></dd></div>
+    <div class="read"><dt>ベストタイム</dt><dd><span id="r-best"></span><span class="sub" id="r-bestsub"></span></dd></div>
+    <div class="read"><dt>今日</dt><dd><span id="r-cond"></span><span class="sub">上下は予報しない</span></dd></div>
+  </dl>
+
+  <div class="head"><h2>うねりの元</h2><div class="rule"></div></div>
+  <div class="src"><ul id="src"></ul></div>
+
+  <div class="head"><h2>波予報</h2><div class="rule"></div></div>
+  <div id="week"></div>
+  <div class="diag" id="diag"></div>
+
+  <div class="pick">
+    <span class="lab">持ってくならこれ</span>
+    <span class="nm" id="pick-nm"></span>
+    <span class="rz" id="pick-rz"></span>
+  </div>
+
+  <div class="head"><h2>今日の判断</h2><div class="rule"></div></div>
+  <div class="btns" id="btns"></div>
+  <div id="log"></div>
+  <div class="logfoot">
+    <button class="mini" id="export">JSONL で書き出す</button>
+    <button class="mini" id="clear">記録を消す</button>
+  </div>
+
+  <p class="foot"><b>上がるか下がるかは予報しません。</b>
+  波の大きさ、面の質、時間帯だけを出します。入るかどうかと、どのボードで入るかは自分で決める。
+  押した記録は端末に残ります。</p>
+
+</div>
+
+<script>
+/* ---------- render ---------- */
+const $ = id => document.getElementById(id);
+
+if (typeof DATA === "undefined") {
+  document.querySelector(".wrap").innerHTML =
+    '<p style="font-family:var(--mono);font-size:13px;color:#D9615A;padding:40px 0">' +
+    'data.js が読めていません。make_data.py を実行して同じフォルダに置いてください。</p>';
+  throw new Error("data.js missing");
+}
+
+$("rate").textContent = DATA.rate;
+$("pair").textContent = DATA.pair;
+$("stamp").textContent = DATA.stamp;
+$("cond").textContent = DATA.condition;
+$("size").textContent = DATA.size_pips;
+$("note").textContent = DATA.note;
+$("r-size").textContent = DATA.size_pips;
+$("r-norm").textContent = DATA.size_vs_norm;
+$("r-face").textContent = DATA.face;
+$("r-facesub").textContent = DATA.face_sub;
+$("r-best").textContent = DATA.best;
+$("r-bestsub").textContent = DATA.best_sub;
+$("r-cond").textContent = DATA.condition;
+$("pick-nm").textContent = DATA.pick.name;
+$("pick-rz").textContent = DATA.pick.reason;
+
+$("sessions").innerHTML = DATA.sessions
+  .map(s => '<div class="sess' + (s.on ? ' on' : '') + '">' + s.label + '</div>').join("");
+
+$("src").innerHTML = DATA.sources.map(s =>
+  '<li><div class="meta"><span class="tag ' + s.cls + '">' + s.tag + '</span>' +
+  '<span class="when">' + s.when + '</span></div><p>' + s.text + '</p></li>').join("");
+
+(function renderForecast(){
+  const box = $("week"), dg = $("diag"), w = DATA.week || [];
+  if (DATA.forecast_abstain || !w.length){
+    box.innerHTML = '<div class="abst">予報なし。' +
+      (DATA.forecast_reason || '似た並びが過去にない') + '。</div>';
+  } else {
+    const lo = Math.min(...w.map(d => d.lo)), hi = Math.max(...w.map(d => d.hi));
+    const sp = (hi - lo) || 1;
+    const pos = v => ((v - lo) / sp) * 100;
+    box.innerHTML = '<div class="fc">' + w.map(d =>
+      '<div class="row"><div class="dy"><b>' + d.d + '</b>' + d.date + '</div>' +
+      '<div class="track">' +
+        '<div class="band" style="left:' + pos(d.lo) + '%;width:' +
+          Math.max(pos(d.hi) - pos(d.lo), 1) + '%"></div>' +
+        '<div class="mk" style="left:' + pos(d.size) + '%"></div>' +
+      '</div>' +
+      '<div class="val">' + d.size + '<small>' + d.c + '</small></div></div>'
+    ).join("") + '</div>';
+  }
+  const g = DATA.diag || {};
+  if (g.k) {
+    dg.innerHTML =
+      '近傍 ' + g.k + '本 / 距離 ' + g.d_k + '（履歴の下から ' + g.d_k_pct + '%）<br>' +
+      'ランダム近傍だと ' + (g.random_med || []).join(' / ') + ' pips';
+  }
+})();
+
+/* ---------- swell band ---------- */
+(function drawBand(){
+  const W = 560, H = 120, pad = 6;
+  const v = DATA.hourly, n = v.length;
+  const x = i => (i / (n - 1)) * W;
+  const y = val => H - pad - (val / 100) * (H - pad * 2);
+
+  // Catmull-Rom -> cubic bezier
+  let d = "M " + x(0) + " " + y(v[0]);
+  for (let i = 0; i < n - 1; i++) {
+    const p0 = v[Math.max(i - 1, 0)], p1 = v[i], p2 = v[i + 1], p3 = v[Math.min(i + 2, n - 1)];
+    const c1x = x(i) + (x(i + 1) - x(Math.max(i - 1, 0))) / 6;
+    const c1y = y(p1) + (y(p2) - y(p0)) / 6;
+    const c2x = x(i + 1) - (x(Math.min(i + 2, n - 1)) - x(i)) / 6;
+    const c2y = y(p2) - (y(p3) - y(p1)) / 6;
+    d += " C " + c1x + " " + c1y + ", " + c2x + " " + c2y + ", " + x(i + 1) + " " + y(p2);
+  }
+  const area = d + " L " + W + " " + H + " L 0 " + H + " Z";
+
+  const bx1 = (DATA.best_from / (n - 1)) * W;
+  const bx2 = (DATA.best_to / (n - 1)) * W;
+  const ny  = y(DATA.norm_line);
+
+  $("svg").innerHTML +=
+    '<rect x="' + bx1 + '" y="0" width="' + (bx2 - bx1) + '" height="' + H + '" fill="#E8944A" opacity="0.10"/>' +
+    '<line x1="0" y1="' + ny + '" x2="' + W + '" y2="' + ny + '" stroke="#25525C" stroke-width="1" stroke-dasharray="3 4"/>' +
+    '<path class="fillup" d="' + area + '" fill="#4FB3A8" opacity="0.16"/>' +
+    '<path class="draw" d="' + d + '" fill="none" stroke="#4FB3A8" stroke-width="2" stroke-linecap="round"/>';
+})();
+
+/* ---------- decision log ---------- */
+const KEY = "obanzak_nami_log";
+function load(){ try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch(e){ return []; } }
+function save(a){ try { localStorage.setItem(KEY, JSON.stringify(a)); } catch(e){} }
+
+$("btns").innerHTML =
+  DATA.boards.map(b => '<button data-c="' + b + '">' + b + ' で入る</button>').join("") +
+  '<button data-c="入らない">今日は寝る</button>';
+
+function render(){
+  const a = load();
+  if (!a.length){ $("log").innerHTML = '<p class="empty">まだ記録なし。今日どうするか押しといて。</p>'; return; }
+  $("log").innerHTML = a.slice(0, 8).map(e => {
+    const off = e.choice !== e.recommended;
+    return '<div class="logline">' + e.date + '  <span class="ch' + (off ? ' off' : '') + '">' +
+      e.choice + '</span>  推奨 ' + e.recommended + ' / ' + e.condition + ' / ' + e.size_pips + 'pips' +
+      (off ? '  ←推奨と違う' : '') + '</div>';
+  }).join("");
+}
+
+function record(choice){
+  const a = load();
+  a.unshift({
+    date: DATA.stamp.split(" ")[0],
+    ts: new Date().toISOString(),
+    choice: choice,
+    recommended: DATA.pick.name,
+    condition: DATA.condition,
+    size_pips: DATA.size_pips,
+    face: DATA.face,
+    best: DATA.best
+  });
+  save(a); render();
+}
+
+$("btns").addEventListener("click", e => {
+  const b = e.target.closest("button");
+  if (b) record(b.dataset.c);
+});
+
+$("export").addEventListener("click", () => {
+  const a = load();
+  if (!a.length) return;
+  const jsonl = a.slice().reverse().map(o => JSON.stringify(o)).join("\n") + "\n";
+  const url = URL.createObjectURL(new Blob([jsonl], {type:"application/x-ndjson"}));
+  const link = document.createElement("a");
+  link.href = url; link.download = "nami_decisions.jsonl";
+  link.click(); URL.revokeObjectURL(url);
+});
+
+$("clear").addEventListener("click", () => {
+  if (confirm("記録を全部消す？ 戻せません。")) { save([]); render(); }
+});
+
+render();
+</script>
+</body>
+</html>

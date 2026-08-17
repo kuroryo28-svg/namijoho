@@ -1,0 +1,50 @@
+name: 波情報の更新
+
+on:
+  schedule:
+    # JST 05:30 平日（UTC 20:30 日〜木）
+    - cron: "30 20 * * 0-4"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: data.js を生成
+        run: python3 make_data.py
+
+      - name: 変更があればコミット
+        run: |
+          git config user.name "namijoho-bot"
+          git config user.email "actions@github.com"
+          if git diff --quiet -- data.js; then
+            echo "変化なし"
+          else
+            git add data.js
+            git commit -m "波情報更新 $(date -u '+%F %H:%M UTC')"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
