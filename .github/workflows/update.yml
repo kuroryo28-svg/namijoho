@@ -30,14 +30,17 @@ jobs:
       - name: data.js を生成
         run: python3 make_data.py
 
+      - name: 予報をアーカイブ
+        run: python3 archive_forecast.py
+
       - name: 変更があればコミット
         run: |
           git config user.name "namijoho-bot"
           git config user.email "actions@github.com"
-          if git diff --quiet -- data.js; then
+          if [ -z "$(git status --porcelain -- data.js forecasts/)" ]; then
             echo "変化なし"
           else
-            git add data.js
+            git add data.js forecasts/
             git commit -m "波情報更新 $(date -u '+%F %H:%M UTC')"
             git push
           fi
