@@ -1,7 +1,7 @@
 const DATA = {
   "pair": "USD/JPY",
   "rate": "158.43",
-  "stamp": "8/20 (木) 13:08 JST",
+  "stamp": "8/20 (木) 13:10 JST",
   "condition": "ふつう",
   "note": "朝から動く。21時から上がる。金に大きいのが来る。",
   "size_pips": 66,
@@ -71,16 +71,16 @@ const DATA = {
       "text": "FOMC議事録は未発表、金利観が焦点【今日の市場はどう動いた？】"
     },
     {
+      "tag": "上は風が強い",
+      "cls": "t-wind",
+      "when": "8/20",
+      "text": "円高進み1ドル=158円台前半 長期金利急低下、米財務省の一手で"
+    },
+    {
       "tag": "織り込み進行",
       "cls": "t-in",
       "when": "8/20",
       "text": "豪雇用、正規雇用はプラス圏も非正規のマイナス分大きく、予想外の前月比マイナス＝東京為替 -"
-    },
-    {
-      "tag": "上は風が強い",
-      "cls": "t-wind",
-      "when": "8/19",
-      "text": "ドル/円見通し(為替/FX ニュース )：ドル円は円高で158円台前半｜米財務省が国債に関する計画を発表"
     }
   ],
   "week": [
@@ -130,7 +130,7 @@ const DATA = {
   "diag": {
     "library": 509,
     "k": 30,
-    "d_k": 17.221,
+    "d_k": 17.17,
     "d_k_pct": 96.6,
     "spread": 0.143,
     "oldest": 12,
@@ -235,9 +235,9 @@ const DATA = {
   "sel_rule_version": "SEL-v1",
   "scoring_version": "v1",
   "sel_recommended_board": "HANABI",
-  "neighbor_distance": 17.221,
+  "neighbor_distance": 17.17,
   "neighbor_distance_pct": 96.6,
   "neighbor_k": 30,
   "abstained": true,
-  "generated_at": "2026-08-20T04:08:16.215591+00:00"
+  "generated_at": "2026-08-20T04:10:59.557947+00:00"
 };
