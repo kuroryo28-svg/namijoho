@@ -17,6 +17,8 @@ from pathlib import Path
 
 import fetch_news
 import forecast as fc
+import selector as sel
+import review as rv
 
 SYMBOL = "JPY=X"
 PIP = 0.01
@@ -85,12 +87,6 @@ def label_face(w):
     return "ぐちゃぐちゃ", "ヒゲだらけ・入らない方が"
 
 
-def pick_board(cond, w):
-    if cond == "凪":     return "入らない", "波がない。今日は寝る"
-    if w >= FACE_CLEAN:  return "HANABI", "掘れて速い。長く乗る日ではない"
-    return "WATERMAN", "小さいが面がいい。長く乗れる"
-
-
 def session_name(h):
     if 9 <= h < 16:  return "東京"
     if 16 <= h < 21: return "ロンドン"
@@ -153,7 +149,6 @@ def main():
     b_from, b_to = best_window(prof)
     cond = label_condition(ratio)
     face, face_sub = label_face(wick)
-    board, reason = pick_board(cond, wick)
 
     now = m5[-1]["jst"]
 
@@ -168,6 +163,29 @@ def main():
     except Exception as e:
         print(f"  ニュース取得失敗: {e}", file=sys.stderr)
         sources = []
+
+    # ---- 東京レンジ・確信度・板選択・採点 ----
+    tokyo_hist, tokyo_med = sel.tokyo_range_stats(m5, PIP)
+    tokyo_today = tokyo_hist[-1] if tokyo_hist else None
+
+    d_k_pct = fcst["diag"].get("d_k_pct")
+    conf = sel.confidence_label(d_k_pct)
+    tercile = sel.wave_tercile(recent, rng[-NORM_DAYS:])
+
+    board, board_reason = sel.select_board(
+        wave_tercile=tercile,
+        confidence=conf,
+        abstained=fcst["abstain"],
+        tokyo_ratio=tokyo_today["ratio"] if tokyo_today else None,
+        tokyo_ratio_median=tokyo_med,
+        operational_hold=False,
+    )
+
+    date_str = now.date().isoformat()
+    control = sel.draw_control(date_str)
+
+    review_rows, review_avg = rv.build_review(d1)
+    recent_actual = rv.build_recent_actual(d1, pip=PIP)
 
     data = {
         "pair": "USD/JPY",
@@ -196,8 +214,27 @@ def main():
         "forecast_abstain": fcst["abstain"],
         "forecast_reason": fcst["reason"],
         "diag": fcst["diag"],
-        "pick": {"name": board, "reason": reason},
-        "boards": ["HANABI", "WATERMAN"],
+        "pick": {"name": board, "reason": board_reason},
+        "boards": ["HANABI", "WATERMAN", "NAGI"],
+
+        "confidence": conf,
+        "wave_tercile": tercile,
+        "tokyo_pips": round(tokyo_today["tokyo_pips"]) if tokyo_today else None,
+        "tokyo_ratio": round(tokyo_today["ratio"], 2) if tokyo_today else None,
+        "tokyo_ratio_median": round(tokyo_med, 2),
+        "control_board": control,
+        "recent_actual": recent_actual,
+        "review": review_rows,
+        "review_avg": review_avg,
+
+        "selector_revision": sel.SELECTOR_REVISION,
+        "sel_rule_version": sel.SEL_RULE_VERSION,
+        "scoring_version": sel.SCORING_VERSION,
+        "sel_recommended_board": board,
+        "neighbor_distance": fcst["diag"].get("d_k"),
+        "neighbor_distance_pct": d_k_pct,
+        "neighbor_k": fcst["diag"].get("k"),
+        "abstained": fcst["abstain"],
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
     }
 
@@ -205,8 +242,9 @@ def main():
         "const DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";\n",
         encoding="utf-8")
     tail = "棄権" if fcst["abstain"] else f"予報{len(week)}日"
-    print(f"data.js  {cond} / {round(recent)}pips / {board} / "
-          f"ニュース{len(sources)}件 / {tail}")
+    print(f"data.js  {cond} / {round(recent)}pips / 推奨{board} / 対照{control} / "
+          f"確信度{conf} / ニュース{len(sources)}件 / {tail}"
+          + (f" / 採点平均{review_avg}" if review_avg is not None else ""))
 
 
 if __name__ == "__main__":

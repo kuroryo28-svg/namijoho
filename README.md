@@ -27,7 +27,67 @@ git push -u origin main
 | レート・波高・面・時間帯 | Yahoo Finance chart API（`JPY=X`） |
 | うねりの元（ニュース） | Google ニュース RSS |
 | 波予報（翌5営業日） | 価格履歴からアナログ探索（`forecast.py`） |
+| 東京レンジ・確信度 | 5分足から算出（`selector.py`） |
+| 板の推奨（SEL-v1） | 選択ルール（`selector.py`） |
+| 対照のサイコロ | 日付から決定的に生成（再現可能） |
+| 予報の答え合わせ | `forecasts/` と実測の突合（`review.py`） |
 | 判断ログ | ブラウザの localStorage |
+
+## 板の選択について
+
+**このアプリは推奨するだけで、決定はしない。** 選ぶのは人間。
+推奨に従わなかった日も台帳に残る。従わなかった日が後で効いてくる。
+
+選択肢は4つ。
+
+    HANABI / WATERMAN / NAGI / 置かない
+
+「置かない」は運用都合（メンテ・復旧）のときだけ。
+**市場を理由に置かないことはしない。**「荒れすぎる日は入らない」には
+実測の裏付けがないため。予報が棄権した日も置く。
+
+### SEL-v1（全て仮置き）
+
+    IF  運用都合                              → 置かない
+    ELIF 予報が棄権 OR 確信度が低い            → HANABI
+    ELIF 波高 上位1/3                          → HANABI
+    ELIF 波高 下位1/3 AND 確信度が高い         → WATERMAN
+    ELIF 波高 中位1/3 AND 東京レンジ比 ≥ 平常
+         AND 確信度が低くない                  → NAGI
+    ELSE                                       → HANABI
+
+板ごとに要求する確信度が違う。HANABI は迷ったら出す（外しても空振りが安い）。
+WATERMAN は確度が高い日だけ（広い SL で持っている最中に大波が来ると一番痛い）。
+
+閾値と分位は**全て仮置き**。根拠となる観測はまだ無い。
+26エポック後に候補ログで検証するまで、結果を見て動かさないこと。
+
+## 採点（scoring_version = v1、凍結）
+
+予報の帯（25〜75%）に対して実測がどこに落ちたかで8段階。
+
+| 段階 | 点 | 条件 |
+|---|---|---|
+| ドンピシャ | 100 | 帯の中央1/3 |
+| 当たり | 85 | 帯の中 |
+| ニアミス | 70 | 帯の端から〜10% |
+| 惜しい | 55 | 〜20% |
+| かすった | 40 | 〜35% |
+| 外し | 25 | 〜50% |
+| 大外し | 10 | 〜75% |
+| 逆走 | 0 | 75%超 |
+
+定義を変えるときは `SCORING_VERSION` を上げ、それ以前の点と混ぜないこと。
+
+## 予報アーカイブ
+
+`forecasts/YYYY-MM-DD.json` に日次で予報の生データが append-only で溜まる。
+同じ日のファイルは上書きされない。
+
+**予報を過去に遡って生成することは禁止。** 遡及生成された予報は事後登録であり、
+以後のあらゆる検定を無効化する。一度混入すると分離できない。
+
+答え合わせは溜まった日数ぶんだけ出る。初日は0行、1週間で7行。
 
 ## 波予報のやり方と、その限界
 
@@ -49,16 +109,6 @@ git push -u origin main
 分かること: 波の大きさ、荒れ具合、動く時間帯。
 分からないこと: 方向、水準、イベントで飛ぶ瞬間、転換点。
 
-## 予報アーカイブ
-
-`forecasts/` に日次で予報の生データが append-only で溜まっていく
-（`forecasts/YYYY-MM-DD.json`）。同じ日のファイルが既に存在する場合は上書きしない。
-
-**予報を過去に遡って生成することは禁止。** 研究上、後から都合よく生成したデータが
-混ざると検証の意味が無くなるため。
-
-検証機能はまだ実装していない。ここでは生データの蓄積のみを行う。
-
 ## 決め打ちの値
 
 **結果を見てから動かさないこと。**
@@ -66,6 +116,14 @@ git push -u origin main
 `forecast.py`
 ```
 LOOKBACK=5  HORIZON=5  K=30  MIN_GAP=10  NORM_WIN=60  ABSTAIN_PCT=90
+```
+
+`selector.py`
+```
+SELECTOR_REVISION=1  SEL_RULE_VERSION="SEL-v1"  SCORING_VERSION="v1"
+CONF_HIGH=33  CONF_LOW=67          # 確信度の境界（d_k_pct）
+SCORE_BANDS                        # 採点の8段階
+tokyo_range_stats(window=20)       # 東京レンジ比の基準期間
 ```
 
 `make_data.py`
@@ -80,11 +138,15 @@ RECENT_DAYS=20  NORM_DAYS=250  LOOKBACK_DAYS=60
 ## ファイル
 
 ```
-index.html      画面。data.js だけ読む
-data.js         生成物。Actions が上書きする
-make_data.py    全体の組み立て
-forecast.py     アナログ波予報エンジン
-fetch_news.py   ニュース取得とタグ分け
+index.html          画面。data.js だけ読む
+data.js             生成物。Actions が上書きする
+make_data.py        全体の組み立て
+forecast.py         アナログ波予報エンジン
+selector.py         板の選択ルール・確信度・採点・サイコロ
+review.py           予報と実測の突合
+fetch_news.py       ニュース取得とタグ分け
+archive_forecast.py 予報の日次アーカイブ
+forecasts/          予報の生データ（append-only）
 .github/workflows/update.yml
 ```
 
