@@ -1,7 +1,7 @@
 const DATA = {
   "pair": "USD/JPY",
-  "rate": "159.06",
-  "stamp": "8/21 (金) 05:56 JST",
+  "rate": "158.88",
+  "stamp": "8/21 (金) 23:23 JST",
   "condition": "ふつう",
   "note": "朝から動く。21時から上がる。月に大きいのが来る。",
   "size_pips": 76,
@@ -11,34 +11,34 @@ const DATA = {
   "best": "21–24時",
   "best_sub": "NY 重複",
   "hourly": [
-    78,
+    77,
     60,
     63,
-    62,
+    61,
     59,
     62,
     69,
     60,
-    53,
-    89,
+    54,
+    90,
     75,
     57,
-    50,
+    51,
     50,
     53,
     76,
-    79,
-    74,
-    69,
-    57,
-    59,
-    88,
-    97,
+    80,
+    75,
+    70,
+    58,
+    61,
+    89,
+    98,
     100
   ],
   "best_from": 21,
   "best_to": 24,
-  "norm_line": 68,
+  "norm_line": 69,
   "sessions": [
     {
       "label": "東京",
@@ -61,86 +61,86 @@ const DATA = {
     {
       "tag": "小さめ",
       "cls": "t-min",
-      "when": "8/20",
-      "text": "ドル円、１５９円台を回復 ドル安一服や根強い円安で＝ＮＹ為替概況"
-    },
-    {
-      "tag": "上は風が強い",
-      "cls": "t-wind",
-      "when": "8/20",
-      "text": "円安で行われた「為替介入」について、小学生にも分かるように解説【親子で語る国際政治】（HugKum）"
-    },
-    {
-      "tag": "織り込み進行",
-      "cls": "t-in",
-      "when": "8/20",
-      "text": "【見通し】NY為替見通し＝米債安定化策は一時的か、日米の財政懸念は変わらず"
+      "when": "8/21",
+      "text": "ドル円は１５８円台後半、一時のドル安が落ち着く＝ＮＹ為替序盤"
     },
     {
       "tag": "大うねり",
       "cls": "t-big",
-      "when": "8/20",
-      "text": "【2026年ドル円見通し】日銀9月に利上げか？それでも円安が止まらない3つの理由 2026年8月20日"
+      "when": "8/21",
+      "text": "日銀、6月利上げ観測高まる"
+    },
+    {
+      "tag": "織り込み進行",
+      "cls": "t-in",
+      "when": "8/21",
+      "text": "NY為替見通し＝米超長期債の動向に注目、ドル売り・円売り地合いは変わらずか(トレーダーズ・ウェブ)"
+    },
+    {
+      "tag": "上は風が強い",
+      "cls": "t-wind",
+      "when": "8/21",
+      "text": "日銀の利上げ、ペース加速か インフレ上振れと日米協調介入が後押し"
     }
   ],
   "week": [
     {
       "d": "月",
       "date": "8/24",
-      "size": 92,
-      "lo": 48,
-      "hi": 113,
+      "size": 96,
+      "lo": 68,
+      "hi": 112,
       "c": "いい"
     },
     {
       "d": "火",
       "date": "8/25",
-      "size": 91,
-      "lo": 64,
-      "hi": 125,
+      "size": 101,
+      "lo": 68,
+      "hi": 134,
       "c": "いい"
     },
     {
       "d": "水",
       "date": "8/26",
-      "size": 94,
-      "lo": 59,
-      "hi": 141,
+      "size": 96,
+      "lo": 60,
+      "hi": 125,
       "c": "いい"
     },
     {
       "d": "木",
       "date": "8/27",
-      "size": 90,
-      "lo": 65,
-      "hi": 132,
+      "size": 96,
+      "lo": 68,
+      "hi": 145,
       "c": "いい"
     },
     {
       "d": "金",
       "date": "8/28",
-      "size": 101,
-      "lo": 67,
-      "hi": 139,
+      "size": 112,
+      "lo": 88,
+      "hi": 171,
       "c": "いい"
     }
   ],
   "forecast_abstain": true,
   "forecast_reason": "似た並びが過去にない",
   "diag": {
-    "library": 510,
+    "library": 509,
     "k": 30,
-    "d_k": 24.255,
-    "d_k_pct": 100.0,
-    "spread": 0.106,
-    "oldest": 12,
-    "newest": 498,
+    "d_k": 7.845,
+    "d_k_pct": 91.2,
+    "spread": 0.1,
+    "oldest": 11,
+    "newest": 497,
     "random_med": [
-      99,
       107,
       105,
       98,
-      90
+      90,
+      101
     ]
   },
   "pick": {
@@ -154,10 +154,21 @@ const DATA = {
   ],
   "confidence": "低い",
   "wave_tercile": "mid",
-  "tokyo_pips": 41,
-  "tokyo_ratio": 0.47,
-  "tokyo_ratio_median": 0.43,
+  "tokyo_pips": 27,
+  "tokyo_ratio": 0.32,
+  "tokyo_ratio_median": 0.38,
   "control_board": "HANABI",
+  "coil": {
+    "version": "coil-v0",
+    "as_of": "2026-08-20",
+    "close_position": 0.128,
+    "close_position_pct": 17.2,
+    "net3d_atr": -0.84,
+    "net3d_atr_pct": 12.0,
+    "atr_pips": 125.2,
+    "n_history": 250
+  },
+  "coil_version": "coil-v0",
   "recent_actual": [
     {
       "date": "8/13",
@@ -192,7 +203,7 @@ const DATA = {
     {
       "date": "8/21",
       "d": "金",
-      "pips": 117
+      "pips": 79
     }
   ],
   "review": [
@@ -235,7 +246,7 @@ const DATA = {
       "pred": 89,
       "lo": 65,
       "hi": 121,
-      "actual": 117,
+      "actual": 79,
       "label": "当たり",
       "points": 85,
       "from": "8/20"
@@ -246,9 +257,9 @@ const DATA = {
   "sel_rule_version": "SEL-v1",
   "scoring_version": "v1",
   "sel_recommended_board": "HANABI",
-  "neighbor_distance": 24.255,
-  "neighbor_distance_pct": 100.0,
+  "neighbor_distance": 7.845,
+  "neighbor_distance_pct": 91.2,
   "neighbor_k": 30,
   "abstained": true,
-  "generated_at": "2026-08-20T20:56:56.530353+00:00"
+  "generated_at": "2026-08-21T14:23:21.126780+00:00"
 };

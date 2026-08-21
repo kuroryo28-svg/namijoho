@@ -69,6 +69,18 @@ body{
 .read dd{margin:0;font-size:19px;font-weight:500}
 .read dd .sub{display:block;font-size:12px;color:var(--haze);font-weight:400;margin-top:2px}
 
+/* ---- 溜まり ---- */
+.coil{border-top:1px solid var(--line)}
+.coil .c{display:grid;grid-template-columns:1fr 96px 62px;align-items:center;
+  gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.coil .nm{font-size:14px}
+.coil .nm small{display:block;font-size:11px;color:var(--haze)}
+.coil .vl{font-family:var(--mono);font-size:18px;text-align:right}
+.coil .pc{font-family:var(--mono);font-size:11px;color:var(--haze);text-align:right}
+.coil .pc b{display:block;font-size:14px;font-weight:400;color:var(--foam)}
+.coilfoot{margin-top:10px;font-size:12px;color:var(--haze);line-height:1.7}
+.coilfoot code{font-family:var(--mono);font-size:11px}
+
 /* ---- section heads ---- */
 .head{display:flex;align-items:center;gap:10px;margin:38px 0 14px}
 .head h2{font-family:var(--disp);font-weight:500;font-size:17px;letter-spacing:.1em;margin:0;white-space:nowrap}
@@ -214,6 +226,9 @@ button:focus-visible{outline:2px solid var(--buoy);outline-offset:2px}
     <div class="read"><dt>今日</dt><dd><span id="r-cond"></span><span class="sub">上下は予報しない</span></dd></div>
   </dl>
 
+  <div class="head"><h2>溜まり</h2><div class="rule"></div></div>
+  <div id="coil"></div>
+
   <div class="head"><h2>直近の波</h2><div class="rule"></div></div>
   <div class="hist" id="hist"></div>
   <div class="histrow" id="histrow"></div>
@@ -293,6 +308,33 @@ $("selver").textContent = (DATA.sel_rule_version || "") +
   " / 採点 " + (DATA.scoring_version || "?");
 
 /* ---- 直近の波 ---- */
+(function renderCoil(){
+  const c = DATA.coil || {};
+  const box = $("coil");
+  if (c.close_position == null && c.net3d_atr == null){
+    box.innerHTML = '<div class="abst">溜まりなし。' +
+      (c.reason || '前日の値が取れない') + '。</div>';
+    return;
+  }
+  const pct = v => v == null ? '—' : v + '<small>%tile</small>';
+  const row = (nm, sub, val, p) =>
+    '<div class="c"><div class="nm">' + nm + '<small>' + sub + '</small></div>' +
+    '<div class="vl">' + (val == null ? '—' : val) + '</div>' +
+    '<div class="pc"><b>' + (p == null ? '—' : p) + '</b>%tile</div></div>';
+  box.innerHTML = '<div class="coil">' +
+    row('前日終値位置', '0=安値引け / 1=高値引け',
+        c.close_position, c.close_position_pct) +
+    row('前3日 純変化', 'ATR 単位・符号つき',
+        c.net3d_atr, c.net3d_atr_pct) +
+    '</div>' +
+    '<p class="coilfoot">大きく獲れた日の前日は <b>終値位置 0.41</b>・' +
+    '<b>前3日 +0.21</b> 付近だった（他の日は 0.60 / +3.38）。' +
+    '溜まってから放たれる側。<br>' +
+    '判定はしない。推奨にも使わない。毎日出して当たるかを見るだけ。' +
+    (c.as_of ? ' <code>前日 ' + c.as_of + ' / ' + (c.version || '') + '</code>' : '') +
+    '</p>';
+})();
+
 (function renderHist(){
   const a = DATA.recent_actual || [];
   if (!a.length){ $("hist").innerHTML=""; $("histrow").innerHTML=""; return; }
@@ -427,6 +469,12 @@ function record(choice){
     surface_pred: DATA.face,
     tokyo_pips: DATA.tokyo_pips,
     tokyo_ratio: DATA.tokyo_ratio,
+    coil_as_of: (DATA.coil || {}).as_of,
+    coil_close_position: (DATA.coil || {}).close_position,
+    coil_close_position_pct: (DATA.coil || {}).close_position_pct,
+    coil_net3d_atr: (DATA.coil || {}).net3d_atr,
+    coil_net3d_atr_pct: (DATA.coil || {}).net3d_atr_pct,
+    coil_version: DATA.coil_version,
     selector_revision: DATA.selector_revision,
     sel_rule_version: DATA.sel_rule_version,
     scoring_version: DATA.scoring_version,

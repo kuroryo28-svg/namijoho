@@ -19,6 +19,7 @@ import fetch_news
 import forecast as fc
 import selector as sel
 import review as rv
+import coil
 
 SYMBOL = "JPY=X"
 PIP = 0.01
@@ -184,6 +185,9 @@ def main():
     date_str = now.date().isoformat()
     control = sel.draw_control(date_str)
 
+    # 溜まり。表示だけの項目。select_board には渡さない
+    coil_data = coil.build(d1, PIP)
+
     review_rows, review_avg = rv.build_review(d1)
     recent_actual = rv.build_recent_actual(d1, pip=PIP)
 
@@ -223,6 +227,8 @@ def main():
         "tokyo_ratio": round(tokyo_today["ratio"], 2) if tokyo_today else None,
         "tokyo_ratio_median": round(tokyo_med, 2),
         "control_board": control,
+        "coil": coil_data,
+        "coil_version": coil_data.get("version"),
         "recent_actual": recent_actual,
         "review": review_rows,
         "review_avg": review_avg,
@@ -242,8 +248,10 @@ def main():
         "const DATA = " + json.dumps(data, ensure_ascii=False, indent=2) + ";\n",
         encoding="utf-8")
     tail = "棄権" if fcst["abstain"] else f"予報{len(week)}日"
+    cl = (f"溜まり 位置{coil_data['close_position']}/3日{coil_data['net3d_atr']}"
+          if coil_data.get("close_position") is not None else "溜まり —")
     print(f"data.js  {cond} / {round(recent)}pips / 推奨{board} / 対照{control} / "
-          f"確信度{conf} / ニュース{len(sources)}件 / {tail}"
+          f"確信度{conf} / {cl} / ニュース{len(sources)}件 / {tail}"
           + (f" / 採点平均{review_avg}" if review_avg is not None else ""))
 
 
