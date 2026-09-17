@@ -1,4 +1,4 @@
-const DATA = {
+{
   "pair": "USD/JPY",
   "rate": "155.94",
   "stamp": "9/18 (金) 07:58 JST",
@@ -283,5 +283,7 @@ const DATA = {
   "neighbor_distance_pct": 86.4,
   "neighbor_k": 30,
   "abstained": false,
-  "generated_at": "2026-09-17T22:58:41.654753+00:00"
-};
+  "generated_at": "2026-09-17T22:58:41.654753+00:00",
+  "archived_at": "2026-09-17T22:58:41.706311+00:00",
+  "git_commit": "91cb46b0b2197692f4400628847a05d4af11bd8d"
+}
