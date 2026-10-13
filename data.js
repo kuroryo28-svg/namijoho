@@ -1,9 +1,9 @@
 const DATA = {
   "pair": "USD/JPY",
-  "rate": "158.20",
-  "stamp": "10/12 (月) 08:50 JST",
+  "rate": "158.31",
+  "stamp": "10/13 (火) 11:08 JST",
   "condition": "いい",
-  "note": "朝から動く。21時から上がる。火に大きいのが来る。",
+  "note": "朝から動く。21時から上がる。金に大きいのが来る。",
   "size_pips": 93,
   "size_vs_norm": "平年比 1.3",
   "face": "ぐちゃぐちゃ",
@@ -19,7 +19,7 @@ const DATA = {
     49,
     50,
     48,
-    54,
+    55,
     91,
     76,
     65,
@@ -28,7 +28,7 @@ const DATA = {
     56,
     77,
     79,
-    79,
+    80,
     70,
     61,
     66,
@@ -61,80 +61,80 @@ const DATA = {
     {
       "tag": "小さめ",
       "cls": "t-min",
-      "when": "10/11",
-      "text": "東京外国為替市場概況・8時 ドル円、下値堅い(トレーダーズ・ウェブ)"
-    },
-    {
-      "tag": "織り込み進行",
-      "cls": "t-in",
-      "when": "10/11",
-      "text": "東京為替見通し＝ドル円、東京休場で閑散取引の中、突発的な報道・発言などに要警戒か(トレーダーズ・ウェブ)"
-    },
-    {
-      "tag": "上は風が強い",
-      "cls": "t-wind",
-      "when": "10/11",
-      "text": "日銀の利上げ後も円安基調が続く理由とは－金利差と介入効果の限界 フォトギャラリー | TBS CROSS"
+      "when": "10/13",
+      "text": "東京為替：ドル・円は下げ一服、158円40銭台へ持ち直す(フィスコ)"
     },
     {
       "tag": "大うねり",
       "cls": "t-big",
-      "when": "10/11",
-      "text": "1％から1.25％へ日銀が政策金利引き上げ 『金利のある時代』へ 住宅ローンへの影響は? 支払いはどれく"
+      "when": "10/13",
+      "text": "銀行・信金の貸出、9月は5.3％増 利上げ進展も残高の最高更新続く"
+    },
+    {
+      "tag": "上は風が強い",
+      "cls": "t-wind",
+      "when": "10/13",
+      "text": "【為替】「異例の円買い」を続けるヘッジファンド"
+    },
+    {
+      "tag": "織り込み進行",
+      "cls": "t-in",
+      "when": "10/12",
+      "text": "１３日の東京外国為替市場見通し＝ドル・円、１５８円台後半で底堅い展開か(ウエルスアドバイザー)"
     }
   ],
   "week": [
     {
-      "d": "火",
-      "date": "10/13",
-      "size": 113,
-      "lo": 74,
-      "hi": 146,
-      "c": "いい"
-    },
-    {
       "d": "水",
       "date": "10/14",
-      "size": 110,
-      "lo": 72,
-      "hi": 157,
-      "c": "いい"
+      "size": 80,
+      "lo": 48,
+      "hi": 112,
+      "c": "ふつう"
     },
     {
       "d": "木",
       "date": "10/15",
-      "size": 119,
-      "lo": 74,
-      "hi": 169,
-      "c": "いい"
+      "size": 85,
+      "lo": 52,
+      "hi": 127,
+      "c": "ふつう"
     },
     {
       "d": "金",
       "date": "10/16",
-      "size": 100,
-      "lo": 67,
-      "hi": 123,
+      "size": 97,
+      "lo": 59,
+      "hi": 138,
       "c": "いい"
     },
     {
       "d": "月",
       "date": "10/19",
-      "size": 113,
-      "lo": 65,
-      "hi": 136,
+      "size": 94,
+      "lo": 68,
+      "hi": 116,
+      "c": "いい"
+    },
+    {
+      "d": "火",
+      "date": "10/20",
+      "size": 87,
+      "lo": 62,
+      "hi": 129,
       "c": "いい"
     }
   ],
-  "forecast_abstain": false,
-  "forecast_reason": "",
+  "forecast_abstain": true,
+  "forecast_reason": "似た並びが過去にない",
   "diag": {
     "library": 507,
     "k": 30,
-    "d_k": 3.406,
-    "d_k_pct": 24.6,
-    "spread": 0.207,
-    "oldest": 4,
-    "newest": 476,
+    "d_k": 18.859,
+    "d_k_pct": 100.0,
+    "spread": 0.147,
+    "oldest": 40,
+    "newest": 500,
     "random_med": [
       103,
       99,
@@ -145,18 +145,18 @@ const DATA = {
   },
   "pick": {
     "name": "HANABI",
-    "reason": "どれにも当てはまらず。安いほうへ"
+    "reason": "予報が不確か。迷ったら空振りの安いほう"
   },
   "boards": [
     "HANABI",
     "WATERMAN",
     "NAGI"
   ],
-  "confidence": "高い",
+  "confidence": "低い",
   "wave_tercile": "mid",
-  "tokyo_pips": 39,
-  "tokyo_ratio": 0.42,
-  "tokyo_ratio_median": 0.42,
+  "tokyo_pips": 27,
+  "tokyo_ratio": 0.55,
+  "tokyo_ratio_median": 0.45,
   "control_board": "NAGI",
   "recent_actual": [
     {
@@ -190,9 +190,9 @@ const DATA = {
       "pips": 66
     },
     {
-      "date": "10/12",
-      "d": "月",
-      "pips": 29
+      "date": "10/13",
+      "d": "火",
+      "pips": 38
     }
   ],
   "review": [
@@ -263,15 +263,15 @@ const DATA = {
       "from": "10/8"
     },
     {
-      "date": "10/12",
-      "d": "月",
-      "pred": 84,
-      "lo": 48,
-      "hi": 126,
-      "actual": 29,
+      "date": "10/13",
+      "d": "火",
+      "pred": 113,
+      "lo": 74,
+      "hi": 146,
+      "actual": 38,
       "label": "外し",
       "points": 25,
-      "from": "10/9"
+      "from": "10/12"
     }
   ],
   "review_avg": 70,
@@ -279,9 +279,9 @@ const DATA = {
   "sel_rule_version": "SEL-v1",
   "scoring_version": "v1",
   "sel_recommended_board": "HANABI",
-  "neighbor_distance": 3.406,
-  "neighbor_distance_pct": 24.6,
+  "neighbor_distance": 18.859,
+  "neighbor_distance_pct": 100.0,
   "neighbor_k": 30,
-  "abstained": false,
-  "generated_at": "2026-10-11T23:50:25.298578+00:00"
+  "abstained": true,
+  "generated_at": "2026-10-13T02:10:55.731135+00:00"
 };
