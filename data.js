@@ -1,44 +1,44 @@
 const DATA = {
   "pair": "USD/JPY",
-  "rate": "158.28",
-  "stamp": "10/21 (水) 08:17 JST",
+  "rate": "158.13",
+  "stamp": "10/22 (木) 08:31 JST",
   "condition": "ふつう",
   "note": "朝から動く。21時から上がる。金に大きいのが来る。",
-  "size_pips": 73,
+  "size_pips": 70,
   "size_vs_norm": "平年比 1.0",
   "face": "ぐちゃぐちゃ",
   "face_sub": "ヒゲだらけ・入らない方が",
   "best": "21–24時",
   "best_sub": "NY 重複",
   "hourly": [
-    77,
-    59,
-    59,
-    57,
-    47,
-    48,
-    48,
-    48,
-    56,
-    90,
-    76,
-    65,
-    54,
-    53,
-    56,
-    77,
-    77,
     79,
-    70,
-    61,
-    65,
+    62,
+    58,
+    59,
+    49,
+    50,
+    51,
+    49,
+    59,
     95,
+    80,
+    70,
+    58,
+    56,
+    60,
+    82,
+    82,
+    84,
+    74,
+    62,
+    69,
     100,
-    100
+    97,
+    96
   ],
   "best_from": 21,
   "best_to": 24,
-  "norm_line": 67,
+  "norm_line": 70,
   "sessions": [
     {
       "label": "東京",
@@ -59,69 +59,69 @@ const DATA = {
   ],
   "sources": [
     {
-      "tag": "織り込み進行",
-      "cls": "t-in",
-      "when": "10/20",
-      "text": "ドル/円見通し(為替/FX ニュース )：ドル円は円高で158円台前半｜米10年債利回りやイラン情勢に関"
-    },
-    {
       "tag": "大うねり",
       "cls": "t-big",
-      "when": "10/20",
-      "text": "豪ドル円111円回復、副総裁タカ発言受け豪中銀利上げ前倒し観測浮上"
+      "when": "10/21",
+      "text": "豪ドル/円見通し(為替/FX ニュース)：豪ドル円は円安で111円台前半｜RBA副総裁のタカ派的な発言が"
+    },
+    {
+      "tag": "織り込み進行",
+      "cls": "t-in",
+      "when": "10/21",
+      "text": "FX/為替「ドル/円今日の見通し｜158円挟みの値動き継続 膠着が長期化」 外為どっとコム トゥデイ 2"
     },
     {
       "tag": "小さめ",
       "cls": "t-min",
-      "when": "10/20",
-      "text": "東京市場 ピボット分析（クロス円）"
+      "when": "10/21",
+      "text": "東京市場 ピボット分析（新興国通貨）"
     },
     {
       "tag": "上は風が強い",
       "cls": "t-wind",
-      "when": "10/20",
-      "text": "協調為替介入を受け利上げペースは加速するか 高市政権から9月利上げ容認メッセージが出るかに注目 野村證券"
+      "when": "10/21",
+      "text": "午後にかけてドル安・円買い優勢＝ロンドン為替概況"
     }
   ],
   "week": [
     {
-      "d": "木",
-      "date": "10/22",
-      "size": 80,
-      "lo": 48,
-      "hi": 113,
-      "c": "ふつう"
-    },
-    {
       "d": "金",
       "date": "10/23",
-      "size": 86,
-      "lo": 56,
-      "hi": 125,
+      "size": 87,
+      "lo": 48,
+      "hi": 122,
       "c": "いい"
     },
     {
       "d": "月",
       "date": "10/26",
-      "size": 83,
-      "lo": 59,
-      "hi": 123,
+      "size": 75,
+      "lo": 56,
+      "hi": 103,
       "c": "ふつう"
     },
     {
       "d": "火",
       "date": "10/27",
-      "size": 89,
-      "lo": 67,
-      "hi": 126,
-      "c": "いい"
+      "size": 81,
+      "lo": 51,
+      "hi": 111,
+      "c": "ふつう"
     },
     {
       "d": "水",
       "date": "10/28",
-      "size": 85,
+      "size": 95,
+      "lo": 68,
+      "hi": 125,
+      "c": "いい"
+    },
+    {
+      "d": "木",
+      "date": "10/29",
+      "size": 103,
       "lo": 62,
-      "hi": 132,
+      "hi": 137,
       "c": "いい"
     }
   ],
@@ -130,17 +130,17 @@ const DATA = {
   "diag": {
     "library": 509,
     "k": 30,
-    "d_k": 20.332,
-    "d_k_pct": 100.0,
-    "spread": 0.136,
-    "oldest": 18,
+    "d_k": 10.614,
+    "d_k_pct": 92.1,
+    "spread": 0.218,
+    "oldest": 10,
     "newest": 507,
     "random_med": [
-      83,
       93,
       102,
       100,
-      106
+      106,
+      90
     ]
   },
   "pick": {
@@ -154,16 +154,11 @@ const DATA = {
   ],
   "confidence": "低い",
   "wave_tercile": "mid",
-  "tokyo_pips": 21,
-  "tokyo_ratio": 0.26,
+  "tokyo_pips": 20,
+  "tokyo_ratio": 0.35,
   "tokyo_ratio_median": 0.4,
   "control_board": "HANABI",
   "recent_actual": [
-    {
-      "date": "10/13",
-      "d": "火",
-      "pips": 67
-    },
     {
       "date": "10/14",
       "d": "水",
@@ -192,21 +187,15 @@ const DATA = {
     {
       "date": "10/21",
       "d": "水",
-      "pips": 20
+      "pips": 54
+    },
+    {
+      "date": "10/22",
+      "d": "木",
+      "pips": 12
     }
   ],
   "review": [
-    {
-      "date": "10/13",
-      "d": "火",
-      "pred": 113,
-      "lo": 74,
-      "hi": 146,
-      "actual": 67,
-      "label": "ニアミス",
-      "points": 70,
-      "from": "10/12"
-    },
     {
       "date": "10/14",
       "d": "水",
@@ -268,20 +257,31 @@ const DATA = {
       "pred": 83,
       "lo": 48,
       "hi": 112,
-      "actual": 20,
-      "label": "大外し",
-      "points": 10,
+      "actual": 54,
+      "label": "当たり",
+      "points": 85,
       "from": "10/20"
+    },
+    {
+      "date": "10/22",
+      "d": "木",
+      "pred": 80,
+      "lo": 48,
+      "hi": 113,
+      "actual": 12,
+      "label": "逆走",
+      "points": 0,
+      "from": "10/21"
     }
   ],
-  "review_avg": 72,
+  "review_avg": 73,
   "selector_revision": 1,
   "sel_rule_version": "SEL-v1",
   "scoring_version": "v1",
   "sel_recommended_board": "HANABI",
-  "neighbor_distance": 20.332,
-  "neighbor_distance_pct": 100.0,
+  "neighbor_distance": 10.614,
+  "neighbor_distance_pct": 92.1,
   "neighbor_k": 30,
   "abstained": true,
-  "generated_at": "2026-10-20T23:17:51.355752+00:00"
+  "generated_at": "2026-10-21T23:31:46.185547+00:00"
 };
