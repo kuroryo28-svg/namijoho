@@ -1,0 +1,289 @@
+{
+  "pair": "USD/JPY",
+  "rate": "157.92",
+  "stamp": "11/3 (火) 11:32 JST",
+  "condition": "ふつう",
+  "note": "朝から動く。21時から上がる。金に大きいのが来る。",
+  "size_pips": 67,
+  "size_vs_norm": "平年比 0.9",
+  "face": "ぐちゃぐちゃ",
+  "face_sub": "ヒゲだらけ・入らない方が",
+  "best": "21–24時",
+  "best_sub": "NY 重複",
+  "hourly": [
+    80,
+    64,
+    57,
+    61,
+    51,
+    45,
+    52,
+    52,
+    58,
+    91,
+    82,
+    72,
+    60,
+    59,
+    64,
+    84,
+    86,
+    88,
+    74,
+    64,
+    71,
+    100,
+    97,
+    98
+  ],
+  "best_from": 21,
+  "best_to": 24,
+  "norm_line": 71,
+  "sessions": [
+    {
+      "label": "東京",
+      "on": false
+    },
+    {
+      "label": "ロンドン",
+      "on": false
+    },
+    {
+      "label": "NY 重複",
+      "on": true
+    },
+    {
+      "label": "NY 後半",
+      "on": false
+    }
+  ],
+  "sources": [
+    {
+      "tag": "小さめ",
+      "cls": "t-min",
+      "when": "11/3",
+      "text": "東京為替：ドル・円は157円90銭台に値を戻す、9時台の下落から持ち直し 執筆： Fisco - Inv"
+    },
+    {
+      "tag": "織り込み進行",
+      "cls": "t-in",
+      "when": "11/2",
+      "text": "米ドル／円はどう動く？ 株安による金利低下は続くのか【今週の予想レンジ155～159円】"
+    },
+    {
+      "tag": "大うねり",
+      "cls": "t-big",
+      "when": "11/2",
+      "text": "高市政権の経済ブレーン会田卓司氏「緩やかな利上げには反対しない」、日銀の政策金利は「2029年に2.5％"
+    },
+    {
+      "tag": "上は風が強い",
+      "cls": "t-wind",
+      "when": "11/2",
+      "text": "東京為替：ドル・円は底堅い、円買い後退で"
+    }
+  ],
+  "week": [
+    {
+      "d": "水",
+      "date": "11/4",
+      "size": 80,
+      "lo": 48,
+      "hi": 112,
+      "c": "ふつう"
+    },
+    {
+      "d": "木",
+      "date": "11/5",
+      "size": 78,
+      "lo": 54,
+      "hi": 157,
+      "c": "ふつう"
+    },
+    {
+      "d": "金",
+      "date": "11/6",
+      "size": 94,
+      "lo": 59,
+      "hi": 120,
+      "c": "いい"
+    },
+    {
+      "d": "月",
+      "date": "11/9",
+      "size": 95,
+      "lo": 67,
+      "hi": 119,
+      "c": "いい"
+    },
+    {
+      "d": "火",
+      "date": "11/10",
+      "size": 84,
+      "lo": 62,
+      "hi": 142,
+      "c": "いい"
+    }
+  ],
+  "forecast_abstain": true,
+  "forecast_reason": "似た並びが過去にない",
+  "diag": {
+    "library": 508,
+    "k": 30,
+    "d_k": 11.967,
+    "d_k_pct": 90.3,
+    "spread": 0.209,
+    "oldest": 25,
+    "newest": 500,
+    "random_med": [
+      94,
+      96,
+      100,
+      92,
+      98
+    ]
+  },
+  "pick": {
+    "name": "HANABI",
+    "reason": "予報が不確か。迷ったら空振りの安いほう"
+  },
+  "boards": [
+    "HANABI",
+    "WATERMAN",
+    "NAGI"
+  ],
+  "confidence": "低い",
+  "wave_tercile": "mid",
+  "tokyo_pips": 17,
+  "tokyo_ratio": 0.51,
+  "tokyo_ratio_median": 0.45,
+  "control_board": "HANABI",
+  "recent_actual": [
+    {
+      "date": "10/26",
+      "d": "月",
+      "pips": 97
+    },
+    {
+      "date": "10/27",
+      "d": "火",
+      "pips": 48
+    },
+    {
+      "date": "10/28",
+      "d": "水",
+      "pips": 59
+    },
+    {
+      "date": "10/29",
+      "d": "木",
+      "pips": 49
+    },
+    {
+      "date": "10/30",
+      "d": "金",
+      "pips": 92
+    },
+    {
+      "date": "11/2",
+      "d": "月",
+      "pips": 38
+    },
+    {
+      "date": "11/3",
+      "d": "火",
+      "pips": 18
+    }
+  ],
+  "review": [
+    {
+      "date": "10/26",
+      "d": "月",
+      "pred": 80,
+      "lo": 56,
+      "hi": 102,
+      "actual": 97,
+      "label": "当たり",
+      "points": 85,
+      "from": "10/23"
+    },
+    {
+      "date": "10/26",
+      "d": "月",
+      "pred": 83,
+      "lo": 48,
+      "hi": 113,
+      "actual": 97,
+      "label": "当たり",
+      "points": 85,
+      "from": "10/24"
+    },
+    {
+      "date": "10/28",
+      "d": "水",
+      "pred": 83,
+      "lo": 48,
+      "hi": 113,
+      "actual": 59,
+      "label": "当たり",
+      "points": 85,
+      "from": "10/27"
+    },
+    {
+      "date": "10/29",
+      "d": "木",
+      "pred": 78,
+      "lo": 48,
+      "hi": 112,
+      "actual": 49,
+      "label": "当たり",
+      "points": 85,
+      "from": "10/28"
+    },
+    {
+      "date": "10/30",
+      "d": "金",
+      "pred": 80,
+      "lo": 48,
+      "hi": 113,
+      "actual": 92,
+      "label": "当たり",
+      "points": 85,
+      "from": "10/29"
+    },
+    {
+      "date": "11/2",
+      "d": "月",
+      "pred": 81,
+      "lo": 48,
+      "hi": 113,
+      "actual": 38,
+      "label": "かすった",
+      "points": 40,
+      "from": "10/30"
+    },
+    {
+      "date": "11/2",
+      "d": "月",
+      "pred": 75,
+      "lo": 48,
+      "hi": 103,
+      "actual": 38,
+      "label": "かすった",
+      "points": 40,
+      "from": "10/31"
+    }
+  ],
+  "review_avg": 72,
+  "selector_revision": 1,
+  "sel_rule_version": "SEL-v1",
+  "scoring_version": "v1",
+  "sel_recommended_board": "HANABI",
+  "neighbor_distance": 11.967,
+  "neighbor_distance_pct": 90.3,
+  "neighbor_k": 30,
+  "abstained": true,
+  "generated_at": "2026-11-03T02:32:04.608755+00:00",
+  "archived_at": "2026-11-03T02:32:04.654870+00:00",
+  "git_commit": "517fb29760600902a5a47af1b33529fe01008624"
+}
