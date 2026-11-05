@@ -1,0 +1,289 @@
+{
+  "pair": "USD/JPY",
+  "rate": "158.13",
+  "stamp": "11/5 (木) 09:58 JST",
+  "condition": "ふつう",
+  "note": "朝から動く。21時から上がる。水に大きいのが来る。",
+  "size_pips": 67,
+  "size_vs_norm": "平年比 0.9",
+  "face": "ぐちゃぐちゃ",
+  "face_sub": "ヒゲだらけ・入らない方が",
+  "best": "21–24時",
+  "best_sub": "NY 重複",
+  "hourly": [
+    83,
+    66,
+    59,
+    62,
+    52,
+    46,
+    53,
+    54,
+    61,
+    95,
+    87,
+    76,
+    63,
+    62,
+    67,
+    87,
+    89,
+    90,
+    75,
+    66,
+    73,
+    100,
+    100,
+    99
+  ],
+  "best_from": 21,
+  "best_to": 24,
+  "norm_line": 73,
+  "sessions": [
+    {
+      "label": "東京",
+      "on": false
+    },
+    {
+      "label": "ロンドン",
+      "on": false
+    },
+    {
+      "label": "NY 重複",
+      "on": true
+    },
+    {
+      "label": "NY 後半",
+      "on": false
+    }
+  ],
+  "sources": [
+    {
+      "tag": "大うねり",
+      "cls": "t-big",
+      "when": "11/5",
+      "text": "「利上げ幅の議論必要な局面」日銀政策委員 9月の金融政策決定会合の議事要旨で判明"
+    },
+    {
+      "tag": "小さめ",
+      "cls": "t-min",
+      "when": "11/5",
+      "text": "ドル円、小安い 一時158.23円まで下押し｜FX・為替ニュース"
+    },
+    {
+      "tag": "織り込み進行",
+      "cls": "t-in",
+      "when": "11/4",
+      "text": "FX/為替「ドル/円今日の見通し｜米中間選挙は決め手にならず」 外為どっとコム トゥデイ 2026年11"
+    },
+    {
+      "tag": "上は風が強い",
+      "cls": "t-wind",
+      "when": "11/4",
+      "text": "米中間選挙を受けたドル売り円買いが優勢、その後反発＝東京為替概況"
+    }
+  ],
+  "week": [
+    {
+      "d": "金",
+      "date": "11/6",
+      "size": 80,
+      "lo": 48,
+      "hi": 112,
+      "c": "ふつう"
+    },
+    {
+      "d": "月",
+      "date": "11/9",
+      "size": 78,
+      "lo": 54,
+      "hi": 102,
+      "c": "ふつう"
+    },
+    {
+      "d": "火",
+      "date": "11/10",
+      "size": 83,
+      "lo": 59,
+      "hi": 118,
+      "c": "ふつう"
+    },
+    {
+      "d": "水",
+      "date": "11/11",
+      "size": 92,
+      "lo": 65,
+      "hi": 110,
+      "c": "いい"
+    },
+    {
+      "d": "木",
+      "date": "11/12",
+      "size": 76,
+      "lo": 62,
+      "hi": 115,
+      "c": "ふつう"
+    }
+  ],
+  "forecast_abstain": true,
+  "forecast_reason": "似た並びが過去にない",
+  "diag": {
+    "library": 509,
+    "k": 30,
+    "d_k": 18.563,
+    "d_k_pct": 98.5,
+    "spread": 0.151,
+    "oldest": 24,
+    "newest": 499,
+    "random_med": [
+      96,
+      100,
+      92,
+      98,
+      104
+    ]
+  },
+  "pick": {
+    "name": "HANABI",
+    "reason": "予報が不確か。迷ったら空振りの安いほう"
+  },
+  "boards": [
+    "HANABI",
+    "WATERMAN",
+    "NAGI"
+  ],
+  "confidence": "低い",
+  "wave_tercile": "mid",
+  "tokyo_pips": 32,
+  "tokyo_ratio": 0.57,
+  "tokyo_ratio_median": 0.45,
+  "control_board": "NAGI",
+  "recent_actual": [
+    {
+      "date": "10/28",
+      "d": "水",
+      "pips": 59
+    },
+    {
+      "date": "10/29",
+      "d": "木",
+      "pips": 49
+    },
+    {
+      "date": "10/30",
+      "d": "金",
+      "pips": 92
+    },
+    {
+      "date": "11/2",
+      "d": "月",
+      "pips": 38
+    },
+    {
+      "date": "11/3",
+      "d": "火",
+      "pips": 83
+    },
+    {
+      "date": "11/4",
+      "d": "水",
+      "pips": 123
+    },
+    {
+      "date": "11/5",
+      "d": "木",
+      "pips": 32
+    }
+  ],
+  "review": [
+    {
+      "date": "10/28",
+      "d": "水",
+      "pred": 83,
+      "lo": 48,
+      "hi": 113,
+      "actual": 59,
+      "label": "当たり",
+      "points": 85,
+      "from": "10/27"
+    },
+    {
+      "date": "10/29",
+      "d": "木",
+      "pred": 78,
+      "lo": 48,
+      "hi": 112,
+      "actual": 49,
+      "label": "当たり",
+      "points": 85,
+      "from": "10/28"
+    },
+    {
+      "date": "10/30",
+      "d": "金",
+      "pred": 80,
+      "lo": 48,
+      "hi": 113,
+      "actual": 92,
+      "label": "当たり",
+      "points": 85,
+      "from": "10/29"
+    },
+    {
+      "date": "11/2",
+      "d": "月",
+      "pred": 81,
+      "lo": 48,
+      "hi": 113,
+      "actual": 38,
+      "label": "かすった",
+      "points": 40,
+      "from": "10/30"
+    },
+    {
+      "date": "11/2",
+      "d": "月",
+      "pred": 75,
+      "lo": 48,
+      "hi": 103,
+      "actual": 38,
+      "label": "かすった",
+      "points": 40,
+      "from": "10/31"
+    },
+    {
+      "date": "11/4",
+      "d": "水",
+      "pred": 80,
+      "lo": 48,
+      "hi": 112,
+      "actual": 123,
+      "label": "ニアミス",
+      "points": 70,
+      "from": "11/3"
+    },
+    {
+      "date": "11/5",
+      "d": "木",
+      "pred": 85,
+      "lo": 48,
+      "hi": 113,
+      "actual": 32,
+      "label": "かすった",
+      "points": 40,
+      "from": "11/4"
+    }
+  ],
+  "review_avg": 64,
+  "selector_revision": 1,
+  "sel_rule_version": "SEL-v1",
+  "scoring_version": "v1",
+  "sel_recommended_board": "HANABI",
+  "neighbor_distance": 18.563,
+  "neighbor_distance_pct": 98.5,
+  "neighbor_k": 30,
+  "abstained": true,
+  "generated_at": "2026-11-05T00:58:48.839412+00:00",
+  "archived_at": "2026-11-05T00:58:48.886993+00:00",
+  "git_commit": "c36914972d5a67eb78dad9d3b994a0248622f66e"
+}
