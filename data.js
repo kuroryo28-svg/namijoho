@@ -1,17 +1,17 @@
 const DATA = {
   "pair": "USD/JPY",
-  "rate": "158.78",
-  "stamp": "11/11 (水) 09:46 JST",
+  "rate": "159.69",
+  "stamp": "11/12 (木) 10:57 JST",
   "condition": "ふつう",
-  "note": "朝から動く。21時から上がる。火に大きいのが来る。",
-  "size_pips": 75,
-  "size_vs_norm": "平年比 1.0",
+  "note": "朝から動く。21時から上がる。金に大きいのが来る。",
+  "size_pips": 79,
+  "size_vs_norm": "平年比 1.1",
   "face": "ぐちゃぐちゃ",
   "face_sub": "ヒゲだらけ・入らない方が",
   "best": "21–24時",
   "best_sub": "NY 重複",
   "hourly": [
-    85,
+    84,
     68,
     61,
     63,
@@ -26,13 +26,13 @@ const DATA = {
     65,
     63,
     68,
-    89,
+    88,
     91,
     93,
     77,
     66,
     73,
-    96,
+    95,
     100,
     100
   ],
@@ -61,86 +61,86 @@ const DATA = {
     {
       "tag": "大うねり",
       "cls": "t-big",
-      "when": "11/11",
-      "text": "ドル円は158円70銭台で小動き、米CPI上振れで下値は底堅く"
+      "when": "11/12",
+      "text": "日銀委員、利上げによる経済減速懸念｜全国のニュース｜Web東奥"
     },
     {
       "tag": "小さめ",
       "cls": "t-min",
-      "when": "11/11",
-      "text": "東京為替：ドル・円は伸び悩み、158円70銭台で推移(フィスコ)"
-    },
-    {
-      "tag": "織り込み進行",
-      "cls": "t-in",
-      "when": "11/10",
-      "text": "東京外為、ドル円158円台前半で小動き 当局けん制警戒と米利下げ観測が綱引き"
+      "when": "11/12",
+      "text": "財務官、円安ドル高けん制 「動き速過ぎる」 | | 全国のニュース"
     },
     {
       "tag": "上は風が強い",
       "cls": "t-wind",
-      "when": "11/10",
-      "text": "【本日の見通し】ドル高地合い継続も、159円大台を前に介入警戒感が上値を抑制"
+      "when": "11/12",
+      "text": "三村財務官が口先介入「動きは速すぎる」 1ドル＝160円に迫る円安水準を受け"
+    },
+    {
+      "tag": "織り込み進行",
+      "cls": "t-in",
+      "when": "11/11",
+      "text": "FX/為替「ドル/円今日の見通し｜約2か月半ぶり高値 160円を巡る攻防へ」 外為どっとコム トゥデイ "
     }
   ],
   "week": [
     {
-      "d": "木",
-      "date": "11/12",
-      "size": 76,
-      "lo": 48,
-      "hi": 96,
-      "c": "ふつう"
-    },
-    {
       "d": "金",
       "date": "11/13",
-      "size": 72,
-      "lo": 55,
-      "hi": 100,
-      "c": "ふつう"
+      "size": 94,
+      "lo": 65,
+      "hi": 133,
+      "c": "いい"
     },
     {
       "d": "月",
       "date": "11/16",
-      "size": 72,
-      "lo": 48,
-      "hi": 100,
-      "c": "ふつう"
+      "size": 97,
+      "lo": 77,
+      "hi": 162,
+      "c": "いい"
     },
     {
       "d": "火",
       "date": "11/17",
-      "size": 96,
-      "lo": 68,
-      "hi": 152,
+      "size": 98,
+      "lo": 56,
+      "hi": 134,
       "c": "いい"
     },
     {
       "d": "水",
       "date": "11/18",
-      "size": 96,
-      "lo": 62,
-      "hi": 142,
+      "size": 88,
+      "lo": 72,
+      "hi": 146,
+      "c": "いい"
+    },
+    {
+      "d": "木",
+      "date": "11/19",
+      "size": 105,
+      "lo": 68,
+      "hi": 146,
       "c": "いい"
     }
   ],
-  "forecast_abstain": true,
-  "forecast_reason": "似た並びが過去にない",
+  "forecast_abstain": false,
+  "forecast_reason": "",
   "diag": {
     "library": 509,
     "k": 30,
-    "d_k": 15.373,
-    "d_k_pct": 96.9,
-    "spread": 0.156,
-    "oldest": 20,
-    "newest": 507,
+    "d_k": 5.905,
+    "d_k_pct": 74.2,
+    "spread": 0.209,
+    "oldest": 12,
+    "newest": 506,
     "random_med": [
-      104,
       100,
       103,
       81,
-      95
+      95,
+      86
     ]
   },
   "pick": {
@@ -154,16 +154,11 @@ const DATA = {
   ],
   "confidence": "低い",
   "wave_tercile": "mid",
-  "tokyo_pips": 17,
-  "tokyo_ratio": 0.54,
-  "tokyo_ratio_median": 0.51,
-  "control_board": "NAGI",
+  "tokyo_pips": 30,
+  "tokyo_ratio": 0.65,
+  "tokyo_ratio_median": 0.52,
+  "control_board": "WATERMAN",
   "recent_actual": [
-    {
-      "date": "11/3",
-      "d": "火",
-      "pips": 83
-    },
     {
       "date": "11/4",
       "d": "水",
@@ -192,21 +187,15 @@ const DATA = {
     {
       "date": "11/11",
       "d": "水",
-      "pips": 17
+      "pips": 122
+    },
+    {
+      "date": "11/12",
+      "d": "木",
+      "pips": 30
     }
   ],
   "review": [
-    {
-      "date": "11/2",
-      "d": "月",
-      "pred": 75,
-      "lo": 48,
-      "hi": 103,
-      "actual": 38,
-      "label": "かすった",
-      "points": 40,
-      "from": "10/31"
-    },
     {
       "date": "11/4",
       "d": "水",
@@ -268,20 +257,31 @@ const DATA = {
       "pred": 78,
       "lo": 48,
       "hi": 104,
-      "actual": 17,
-      "label": "大外し",
-      "points": 10,
+      "actual": 122,
+      "label": "惜しい",
+      "points": 55,
       "from": "11/10"
+    },
+    {
+      "date": "11/12",
+      "d": "木",
+      "pred": 76,
+      "lo": 48,
+      "hi": 96,
+      "actual": 30,
+      "label": "外し",
+      "points": 25,
+      "from": "11/11"
     }
   ],
-  "review_avg": 61,
+  "review_avg": 66,
   "selector_revision": 1,
   "sel_rule_version": "SEL-v1",
   "scoring_version": "v1",
   "sel_recommended_board": "HANABI",
-  "neighbor_distance": 15.373,
-  "neighbor_distance_pct": 96.9,
+  "neighbor_distance": 5.905,
+  "neighbor_distance_pct": 74.2,
   "neighbor_k": 30,
-  "abstained": true,
-  "generated_at": "2026-11-11T00:46:43.306422+00:00"
+  "abstained": false,
+  "generated_at": "2026-11-12T01:57:53.815775+00:00"
 };
