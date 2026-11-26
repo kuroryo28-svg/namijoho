@@ -1,40 +1,40 @@
 const DATA = {
   "pair": "USD/JPY",
-  "rate": "159.28",
-  "stamp": "11/25 (水) 12:39 JST",
+  "rate": "159.16",
+  "stamp": "11/26 (木) 11:58 JST",
   "condition": "ふつう",
-  "note": "朝から動く。21時から上がる。木に大きいのが来る。",
-  "size_pips": 71,
-  "size_vs_norm": "平年比 1.0",
+  "note": "朝から動く。21時から上がる。月に大きいのが来る。",
+  "size_pips": 76,
+  "size_vs_norm": "平年比 1.1",
   "face": "ぐちゃぐちゃ",
   "face_sub": "ヒゲだらけ・入らない方が",
   "best": "21–24時",
   "best_sub": "NY 重複",
   "hourly": [
     88,
-    72,
-    63,
-    65,
+    74,
+    64,
+    66,
     55,
     47,
-    52,
+    51,
     57,
     67,
     100,
     91,
-    78,
-    67,
+    77,
+    66,
     63,
     68,
     88,
-    92,
+    88,
     93,
-    78,
-    67,
-    71,
-    93,
+    77,
+    66,
+    70,
+    91,
     96,
-    98
+    97
   ],
   "best_from": 21,
   "best_to": 24,
@@ -61,67 +61,67 @@ const DATA = {
     {
       "tag": "小さめ",
       "cls": "t-min",
-      "when": "11/25",
-      "text": "東京為替：ドル・円はもみ合い、上値の重さを意識 執筆 Fisco - Investing.com"
-    },
-    {
-      "tag": "織り込み進行",
-      "cls": "t-in",
-      "when": "11/25",
-      "text": "【通貨別まとめと見通し】ポンド円：10月末の支持帯割れで207円ちょうど付近へ急落、英高金利が下支えし2"
+      "when": "11/26",
+      "text": "ドル円動意薄、今晩のＮＹ市場は感謝祭で休場＝東京為替前場概況"
     },
     {
       "tag": "大うねり",
       "cls": "t-big",
-      "when": "11/25",
-      "text": "日銀利上げでも円安地獄が終わらない…住宅ローンは苦しいのになぜ円は買われない？ | ニュースな本"
+      "when": "11/26",
+      "text": "物価の上ぶれ「俊敏に反応」日銀・田村審議委員、利上げペース加速も"
+    },
+    {
+      "tag": "織り込み進行",
+      "cls": "t-in",
+      "when": "11/26",
+      "text": "【FX】11/26 ドル円159円台で膠着！米国は感謝祭 ｜為替市場ニュースの振り返り、今日の見通し"
     },
     {
       "tag": "上は風が強い",
       "cls": "t-wind",
-      "when": "11/24",
-      "text": "欧州為替：ドル・円は下げ渋り、円買い圧力は続く(フィスコ)"
+      "when": "11/25",
+      "text": "ドル買いと円買いが交錯、リスク動向は依然不安定で ドル円１５９円台前半で上下動＝ロンドン為替概況"
     }
   ],
   "week": [
     {
-      "d": "木",
-      "date": "11/26",
-      "size": 104,
-      "lo": 68,
-      "hi": 125,
-      "c": "いい"
-    },
-    {
       "d": "金",
       "date": "11/27",
-      "size": 98,
-      "lo": 67,
-      "hi": 125,
-      "c": "いい"
+      "size": 79,
+      "lo": 62,
+      "hi": 126,
+      "c": "ふつう"
     },
     {
       "d": "月",
       "date": "11/30",
-      "size": 100,
+      "size": 94,
       "lo": 67,
-      "hi": 146,
+      "hi": 128,
       "c": "いい"
     },
     {
       "d": "火",
       "date": "12/1",
-      "size": 97,
-      "lo": 67,
-      "hi": 142,
+      "size": 95,
+      "lo": 76,
+      "hi": 158,
       "c": "いい"
     },
     {
       "d": "水",
       "date": "12/2",
-      "size": 109,
+      "size": 92,
+      "lo": 68,
+      "hi": 133,
+      "c": "いい"
+    },
+    {
+      "d": "木",
+      "date": "12/3",
+      "size": 100,
       "lo": 72,
-      "hi": 145,
+      "hi": 119,
       "c": "いい"
     }
   ],
@@ -130,40 +130,35 @@ const DATA = {
   "diag": {
     "library": 509,
     "k": 30,
-    "d_k": 4.116,
-    "d_k_pct": 48.4,
-    "spread": 0.187,
-    "oldest": 11,
-    "newest": 499,
+    "d_k": 5.74,
+    "d_k_pct": 70.5,
+    "spread": 0.194,
+    "oldest": 9,
+    "newest": 498,
     "random_med": [
-      73,
       95,
       76,
       90,
-      80
+      80,
+      97
     ]
   },
   "pick": {
-    "name": "NAGI",
-    "reason": "東京時間に値幅が出やすい。レンジの端を取る"
+    "name": "HANABI",
+    "reason": "予報が不確か。迷ったら空振りの安いほう"
   },
   "boards": [
     "HANABI",
     "WATERMAN",
     "NAGI"
   ],
-  "confidence": "ふつう",
+  "confidence": "低い",
   "wave_tercile": "mid",
-  "tokyo_pips": 24,
-  "tokyo_ratio": 0.75,
-  "tokyo_ratio_median": 0.48,
+  "tokyo_pips": 29,
+  "tokyo_ratio": 0.44,
+  "tokyo_ratio_median": 0.46,
   "control_board": "HANABI",
   "recent_actual": [
-    {
-      "date": "11/17",
-      "d": "火",
-      "pips": 74
-    },
     {
       "date": "11/18",
       "d": "水",
@@ -192,21 +187,15 @@ const DATA = {
     {
       "date": "11/25",
       "d": "水",
-      "pips": 25
+      "pips": 83
+    },
+    {
+      "date": "11/26",
+      "d": "木",
+      "pips": 29
     }
   ],
   "review": [
-    {
-      "date": "11/17",
-      "d": "火",
-      "pred": 82,
-      "lo": 66,
-      "hi": 112,
-      "actual": 74,
-      "label": "当たり",
-      "points": 85,
-      "from": "11/16"
-    },
     {
       "date": "11/18",
       "d": "水",
@@ -268,20 +257,31 @@ const DATA = {
       "pred": 105,
       "lo": 78,
       "hi": 154,
-      "actual": 25,
+      "actual": 83,
+      "label": "当たり",
+      "points": 85,
+      "from": "11/24"
+    },
+    {
+      "date": "11/26",
+      "d": "木",
+      "pred": 104,
+      "lo": 68,
+      "hi": 125,
+      "actual": 29,
       "label": "大外し",
       "points": 10,
-      "from": "11/24"
+      "from": "11/25"
     }
   ],
   "review_avg": 68,
   "selector_revision": 1,
   "sel_rule_version": "SEL-v1",
   "scoring_version": "v1",
-  "sel_recommended_board": "NAGI",
-  "neighbor_distance": 4.116,
-  "neighbor_distance_pct": 48.4,
+  "sel_recommended_board": "HANABI",
+  "neighbor_distance": 5.74,
+  "neighbor_distance_pct": 70.5,
   "neighbor_k": 30,
   "abstained": false,
-  "generated_at": "2026-11-25T03:39:20.821740+00:00"
+  "generated_at": "2026-11-26T02:58:51.181793+00:00"
 };
